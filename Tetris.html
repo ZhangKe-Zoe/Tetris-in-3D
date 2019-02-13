@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{background:black;}
+    	canvas {width:600px;height:600px;}
+   	 	div{color: white; width: 700px;}	
+   	 	.black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color: black; 
+            z-index:1001; 
+            opacity:.80; 
+            filter: alpha(opacity=88); 
+        } 
+        .white_content { 
+            display: none; 
+            position: absolute; 
+            top: 25%; 
+            left: 25%; 
+            width: 25%; 
+            padding: 20px; 
+            border: 2px solid orange; 
+            background-color: white;
+            color: black; 
+            z-index:1002; 
+            overflow: auto; 
+        } 
+	</style>
+    <title>Tetris</title>
+</head>
+
+<body>
+    <div style="position:absolute;left:700px;">
+        <a style="position:absolute;left:25%;color: white;" href = "javascript:void(0)"
+           onclick = "document.getElementById('controls').style.display='block';
+                      document.getElementById('fade').style.display='block'">Controls</a>
+        <div id ="controls" class="white_content">
+            <form id="myform">
+                <input type="checkbox" id="mode" value="auto" checked>Automatisch<br>
+                <input type="checkbox" id="axes" value="axes" checked>Zeige Achsen<br>
+            </form>
+            <br>
+            <a style="color: black"href = "javascript:void(0)"
+               onclick = "document.getElementById('controls').style.display='none';
+                       document.getElementById('fade').style.display='none'">Close Constrols</a>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+    </div>
+    <div>
+        <p>Keyboard-Tasten:</p>
+        <ul>
+            <li>[←][→]:Verschiebung entlang <span style="color: red">roter</span> Richung (x)</li>
+            <li>[↑][↓]:Verschiebung entlang <span style="color: green">grüner</span> Richung (y)</li>
+            <li>[a]:Verschiebung nach unten</li>
+            <li>[q]:Verschiebung nach obten</li>
+            <li>[x]:Drebung um <span style="color: red">roter</span> Ache</li>
+            <li>[y]:Drebung um <span style="color: green">grüner</span> Ache</li>
+            <li>[z]:Drebung um <span style="color: blue">blaue</span> Ache</li>
+            <li>Leertaste: Nächster Stein</li>
+        </ul>
+        </ul>
+    </div>
+    <canvas id='mycanvas'>
+        Canvas not supported
+    </canvas>
+    <script type="text/javascript" src="three.min.js"></script>
+    <script type="text/javascript" src="TrackballControls.js"></script>
+    <script type="text/javascript" src="Tetris.js"></script>
+</body>
+
+</html>
